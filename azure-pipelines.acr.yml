@@ -11,13 +11,12 @@ pool:
 
 variables:
   imageName: 'ssisdevops:$(build.buildId)'
-  dockerId: '$(acrId)'
+  dockerId: 'ssisdevops'
   dockerPassword: '$(acrPassword)'
 
 steps:
 - bash: echo This is a script that could use $dockerId and $dockerPassword
     env:
-      acrId: $(dockerId)
       acrPassword: $(dockerPassword)
 - script: docker build -f docker/mssqlssis/Dockerfile -t $(imageName) .
   displayName: 'docker build'
