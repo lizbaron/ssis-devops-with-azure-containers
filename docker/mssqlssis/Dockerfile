@@ -1,4 +1,4 @@
-FROM microsoft/windowsservercore
+FROM microsoft/windowsservercore:1803
 
 LABEL maintainer "Sreeja P"
 
