@@ -12,7 +12,7 @@ pool:
 variables:
   imageName: 'ssisdevops:$(build.buildId)'
   dockerId: 'ssisdevops'
-  dockerPassword: '$(acrPassword)'
+  pswd: '$(acrPassword)'
 
 steps:
 - bash: echo This is a script that could use $dockerId and $dockerPassword
