@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  vmImage: 'win2016-vs2017'
+  vmImage: 'win1803'
 
 variables:
   imageName: 'ssisdevops:$(build.buildId)'
