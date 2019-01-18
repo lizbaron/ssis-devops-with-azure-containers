@@ -11,6 +11,8 @@ pool:
 
 variables:
   imageName: 'ssisdevops:$(build.buildId)'
+  dockerId: 'ssisdevops'
+  dockerPassword: 'VAPB7gZnSjwU=T/eXdOkKt9sEpL=tx9n'
 
 steps:
 - script: docker build -f docker/mssqlssis/Dockerfile -t $(imageName) .
