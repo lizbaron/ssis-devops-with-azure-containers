@@ -16,7 +16,7 @@ variables:
 
 steps:
 - bash: echo This is a script that could use $dockerId and $dockerPassword
-    env:
-      acrPassword: $(dockerPassword)
+  env:
+    acrPassword: $(dockerPassword)
 - script: docker build -f docker/mssqlssis/Dockerfile -t $(imageName) .
   displayName: 'docker build'
