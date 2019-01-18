@@ -15,7 +15,7 @@ variables:
   dockerPassword: '$(acrPassword)'
 
 steps:
-  - bash: echo This is a script that could use $dockerId and $dockerPassword
+- bash: echo This is a script that could use $dockerId and $dockerPassword
     env:
       acrId: $(dockerId)
       acrPassword: $(dockerPassword)
