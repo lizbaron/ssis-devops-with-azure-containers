@@ -7,11 +7,11 @@ trigger:
 - master
 
 pool:
-  vmImage: 'Ubuntu-16.04'
+  vmImage: 'win2016-vs2017'
 
 variables:
-  imageName: 'your-container-image-name:$(build.buildId)'
+  imageName: 'ssisdevops:$(build.buildId)'
 
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
+- script: docker build -f docker/mssqlssis/Dockerfile -t $(imageName) .
   displayName: 'docker build'
