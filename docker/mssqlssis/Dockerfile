@@ -43,11 +43,11 @@ ENV WIREMOCK_URI "http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-
  
 #ADD ${WIREMOCK_URI} Wiremock/
 
-ADD create_ssis_catalog.ps1 SSIS_SCRIPTS/
-ADD enable_clr_integration.sql SSIS_SCRIPTS/
-ADD deploy_ssis_package.ps1 SSIS_SCRIPTS/
+ADD docker\mssqlssis\create_ssis_catalog.ps1 SSIS_SCRIPTS/
+ADD docker\mssqlssis\enable_clr_integration.sql SSIS_SCRIPTS/
+ADD docker\mssqlssis\deploy_ssis_package.ps1 SSIS_SCRIPTS/
 
-COPY start.ps1 /
+COPY docker\mssqlssis\start.ps1 /
 
 #RUN choco install nuget.commandline
 
