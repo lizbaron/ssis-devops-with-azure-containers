@@ -17,9 +17,9 @@ variables:
 steps:
 - bash: echo This is a script that could use $dockerId and $dockerPassword
   env:
-    acrPassword: $(dockerPassword)
+    acrPassword: '$(dockerPassword)'
 - script: |
     docker build -f docker/mssqlssis/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
-    docker login -u $(dockerId) -p $(pswd) $(dockerId).azurecr.io
+    docker login -u $(dockerId) -p $(dockerPassword) $(dockerId).azurecr.io
     docker push $(dockerId).azurecr.io/$(imageName)
   displayName: 'docker build'
