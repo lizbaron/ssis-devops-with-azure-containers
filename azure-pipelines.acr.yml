@@ -19,6 +19,6 @@ steps:
     acrPassword: '$(dockerPassword)'
 - script: |
     docker build -f docker/mssqlssis/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
-    docker login -u $(dockerId) -p $(acrPassword) $(dockerId).azurecr.io
+    docker login -u $(dockerId) -p $(dockerPassword) $(dockerId).azurecr.io
     docker push $(dockerId).azurecr.io/$(imageName)
   displayName: 'docker build'
