@@ -14,9 +14,9 @@ variables:
   dockerId: 'ssisdevops'
 
 steps:
-- bash: echo This is a script that could use $dockerId and $dockerPassword
-  env:
-    acrPassword: '$(dockerPassword)'
+#- bash: echo This is a script that could use $dockerId and $dockerPassword
+#  env:
+#    acrPassword: '$(dockerPassword)'
 - script: |
     docker build -f docker/mssqlssis/Dockerfile -t $(dockerId).azurecr.io/$(imageName) .
     docker login -u $(dockerId) -p $(dockerPassword) $(dockerId).azurecr.io
