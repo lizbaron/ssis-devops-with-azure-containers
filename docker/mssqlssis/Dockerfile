@@ -35,14 +35,14 @@ ENV WIREMOCK_URI "http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-
 
 #Install Java
 # Set up chocolatey to install java
-#ENV chocolateyUseWindowsCompression false
+ENV chocolateyUseWindowsCompression false
 
 #Install chocolatey via powershell
-#RUN powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
-#RUN choco feature disable --name showDownloadProgress
-#RUN choco install server-jre8 -y
+RUN powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+RUN choco feature disable --name showDownloadProgress
+RUN choco install server-jre8 -y
  
-#ADD ${WIREMOCK_URI} Wiremock/
+ADD ${WIREMOCK_URI} Wiremock/
 
 ADD docker/mssqlssis/create_ssis_catalog.ps1 SSIS_SCRIPTS/
 ADD docker/mssqlssis/enable_clr_integration.sql SSIS_SCRIPTS/
