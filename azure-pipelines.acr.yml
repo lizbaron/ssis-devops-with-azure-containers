@@ -6,7 +6,7 @@
 trigger:
 - master
 
-pool: Default
+pool: default
 #  vmImage: 'vs2017-win2016'
 
 variables:
