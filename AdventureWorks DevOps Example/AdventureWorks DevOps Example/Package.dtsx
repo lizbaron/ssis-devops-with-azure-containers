@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="1/23/2019 7:31:57 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="EBARON-3W10"
+  DTS:CreatorName="TFANET\ebaron"
+  DTS:DTSID="{0E94CF95-4E50-4FBD-AEE7-FF069EC1D3AB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="15.0.0900.30"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionGUID="{A1EF9362-FB8D-4EE3-9AE5-CDB1EED9706B}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables />
+</DTS:Executable>

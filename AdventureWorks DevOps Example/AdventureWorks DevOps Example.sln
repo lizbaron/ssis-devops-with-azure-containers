@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.106
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "AdventureWorks DevOps Example", "AdventureWorks DevOps Example\AdventureWorks DevOps Example.dtproj", "{A88C6705-2E52-40A4-86E9-BE08F19DAD24}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Development|Default = Development|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A88C6705-2E52-40A4-86E9-BE08F19DAD24}.Development|Default.ActiveCfg = Development
+		{A88C6705-2E52-40A4-86E9-BE08F19DAD24}.Development|Default.Build.0 = Development
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9668597B-0C0F-4883-9AD7-2CCC4FE97D03}
+	EndGlobalSection
+EndGlobal
