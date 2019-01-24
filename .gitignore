@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/SSIS DevOps with Azure Containers/.vs/SSIS DevOps with Azure Containers/v15
+/SSIS DevOps with Azure Containers/SSIS DevOps with Azure Containers/bin/Development
+/SSIS DevOps with Azure Containers/SSIS DevOps with Azure Containers/obj/Development
