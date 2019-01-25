@@ -5,14 +5,14 @@
   DTS:CreationName="Microsoft.Package"
   DTS:CreatorComputerName="EBARON-3W10"
   DTS:CreatorName="TFANET\ebaron"
-  DTS:DTSID="{3089200E-E158-4583-8CE0-1BD1DF003BA9}"
+  DTS:DTSID="{ECCCEFF9-1AA8-4CD3-87AB-AB8FF35CE7E7}"
   DTS:ExecutableType="Microsoft.Package"
   DTS:LastModifiedProductVersion="15.0.0900.30"
   DTS:LocaleID="1033"
-  DTS:ObjectName="PKG_Person_load"
+  DTS:ObjectName="PKG_PersonPhone_load"
   DTS:PackageType="5"
-  DTS:VersionBuild="4"
-  DTS:VersionGUID="{A543A7DC-B26C-4B36-93B5-091D0858B53B}">
+  DTS:VersionBuild="7"
+  DTS:VersionGUID="{4154E12D-019F-4DAA-AA8D-22B633DD2BE4}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -27,7 +27,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABF4cWurjvECdwh8yYx0smQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAACM+xYqOuvCreWGkNvNMcUsAAAAAASAAACgAAAAEAAAAGHcEs3sEo6G0uBIF2L5JicYAAAAB7xqDgXrcnMnDf3QONEICxBSC1VkCNwUFAAAALhnhW0qpfyquIaJawW5P2EdTqii</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABF4cWurjvECdwh8yYx0smQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAB5xR96AMIXrFWY+AivcM2yAAAAAASAAACgAAAAEAAAAD0ZK0gogOXama9i6gpKCQIYAAAARSRm4rZXPY3sgimgRW+MZhTAMgK2ZF6zFAAAAFKxjpQsJCy7IsvbaXERaxb+lH/A</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -42,7 +42,7 @@
           <DTS:Password
             DTS:Name="Password"
             Sensitive="1"
-            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABF4cWurjvECdwh8yYx0smQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAAAFN22WwMOieF1Vo7GUsA8JAAAAAASAAACgAAAAEAAAACxpxQFn9E4Ry34TO2D6mgUYAAAA3vhpbCWwmedIndn36zD7NoCEJfQOz/rmFAAAAOmin38d0SEMwY4w95sJSKexehrq</DTS:Password>
+            Encrypted="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABF4cWurjvECdwh8yYx0smQAAAAAIAAAARABUAFMAAAADZgAAwAAAABAAAADYyU9yKb9du21EO/RabA/yAAAAAASAAACgAAAAEAAAABgDKxcK8sqhW3/gfswYAm8YAAAAGeWIxbrIeEPm7RFY5jFfav4rMRK1vMcmFAAAAAlcwGVPTTmjePtn10h3qPXERxpm</DTS:Password>
         </DTS:ConnectionManager>
       </DTS:ObjectData>
     </DTS:ConnectionManager>
@@ -63,11 +63,11 @@
           version="1">
           <components>
             <component
-              refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC"
+              refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE"
               componentClassID="Microsoft.OLEDBSource"
               contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
               description="OLE DB Source"
-              name="AW_PERSON_PHONE_SRC"
+              name="AW_SRC_PERSON_PHONE"
               usesDispositions="true"
               version="7">
               <properties>
@@ -112,7 +112,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[AW_SRC]"
                   connectionManagerRefId="Package.ConnectionManagers[AW_SRC]"
                   description="The OLE DB runtime connection used to access the database."
@@ -120,104 +120,104 @@
               </connections>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output]"
+                  refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output]"
                   name="OLE DB Source Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
+                      externalMetadataColumnId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[BusinessEntityID]"
                       name="BusinessEntityID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                      externalMetadataColumnId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
                       length="25"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumber]"
                       name="PhoneNumber"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]"
                       dataType="i4"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberTypeID]"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]"
+                      externalMetadataColumnId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberTypeID]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]"
                       name="PhoneNumberTypeID"
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
                       dataType="dbTimeStamp"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
+                      externalMetadataColumnId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[ModifiedDate]"
                       name="ModifiedDate"
                       truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].ExternalColumns[BusinessEntityID]"
                       dataType="i4"
                       name="BusinessEntityID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumber]"
                       dataType="wstr"
                       length="25"
                       name="PhoneNumber" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberTypeID]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].ExternalColumns[PhoneNumberTypeID]"
                       dataType="i4"
                       name="PhoneNumberTypeID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].ExternalColumns[ModifiedDate]"
                       dataType="dbTimeStamp"
                       name="ModifiedDate" />
                   </externalMetadataColumns>
                 </output>
                 <output
-                  refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output]"
+                  refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output]"
                   isErrorOut="true"
                   name="OLE DB Source Error Output">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[BusinessEntityID]"
                       name="BusinessEntityID" />
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
                       dataType="wstr"
                       length="25"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[PhoneNumber]"
                       name="PhoneNumber" />
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[PhoneNumberTypeID]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[PhoneNumberTypeID]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[PhoneNumberTypeID]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[PhoneNumberTypeID]"
                       name="PhoneNumberTypeID" />
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
                       dataType="dbTimeStamp"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[ModifiedDate]"
                       name="ModifiedDate" />
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -226,11 +226,11 @@
               </outputs>
             </component>
             <component
-              refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT"
+              refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
               description="OLE DB Destination"
-              name="AW_PERSON_PHONE_TGT"
+              name="AW_TGT_PERSON_PHONE"
               usesDispositions="true"
               version="4">
               <properties>
@@ -283,7 +283,7 @@
               </properties>
               <connections>
                 <connection
-                  refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Connections[OleDbConnection]"
+                  refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Connections[OleDbConnection]"
                   connectionManagerID="Package.ConnectionManagers[AW_TGT]"
                   connectionManagerRefId="Package.ConnectionManagers[AW_TGT]"
                   description="The OLE DB runtime connection used to access the database."
@@ -291,55 +291,55 @@
               </connections>
               <inputs>
                 <input
-                  refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input]"
+                  refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input]"
                   errorOrTruncationOperation="Insert"
                   errorRowDisposition="FailComponent"
                   hasSideEffects="true"
                   name="OLE DB Destination Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].Columns[BusinessEntityID]"
                       cachedDataType="i4"
                       cachedName="BusinessEntityID"
-                      externalMetadataColumnId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[BusinessEntityID]" />
+                      externalMetadataColumnId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[BusinessEntityID]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].Columns[PhoneNumber]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].Columns[PhoneNumber]"
                       cachedDataType="wstr"
                       cachedLength="25"
                       cachedName="PhoneNumber"
-                      externalMetadataColumnId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
+                      externalMetadataColumnId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].Columns[PhoneNumberTypeID]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].Columns[PhoneNumberTypeID]"
                       cachedDataType="i4"
                       cachedName="PhoneNumberTypeID"
-                      externalMetadataColumnId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberTypeID]"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]" />
+                      externalMetadataColumnId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberTypeID]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]" />
                     <inputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].Columns[ModifiedDate]"
                       cachedDataType="dbTimeStamp"
                       cachedName="ModifiedDate"
-                      externalMetadataColumnId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
+                      externalMetadataColumnId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[ModifiedDate]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].ExternalColumns[BusinessEntityID]"
                       dataType="i4"
                       name="BusinessEntityID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumber]"
                       dataType="wstr"
                       length="25"
                       name="PhoneNumber" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberTypeID]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].ExternalColumns[PhoneNumberTypeID]"
                       dataType="i4"
                       name="PhoneNumberTypeID" />
                     <externalMetadataColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input].ExternalColumns[ModifiedDate]"
                       dataType="dbTimeStamp"
                       name="ModifiedDate" />
                   </externalMetadataColumns>
@@ -347,22 +347,22 @@
               </inputs>
               <outputs>
                 <output
-                  refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Outputs[OLE DB Destination Error Output]"
+                  refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Outputs[OLE DB Destination Error Output]"
                   exclusionGroup="1"
                   isErrorOut="true"
                   name="OLE DB Destination Error Output"
-                  synchronousInputId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input]">
+                  synchronousInputId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input]">
                   <outputColumns>
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      lineageId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
                       name="ErrorCode"
                       specialFlags="1" />
                     <outputColumn
-                      refId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      refId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       dataType="i4"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      lineageId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
                       name="ErrorColumn"
                       specialFlags="2" />
                   </outputColumns>
@@ -387,13 +387,13 @@
                       refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[PhoneNumberTypeID]"
                       cachedDataType="i4"
                       cachedName="PhoneNumberTypeID"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]" />
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]" />
                     <inputColumn
                       refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[PhoneNumber]"
                       cachedDataType="wstr"
                       cachedLength="25"
                       cachedName="PhoneNumber"
-                      lineageId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -413,7 +413,7 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]} != 4 &amp;&amp; [FINDSTRING](#{Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output].Columns[PhoneNumber]},"666",1) != 1</property>
+                      name="Expression">#{Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]} != 4 &amp;&amp; [FINDSTRING](#{Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumber]},"666",1) != 1</property>
                     <property
                       containsID="true"
                       dataType="System.String"
@@ -471,10 +471,10 @@
               refId="Package\Data Flow Task.Paths[OLE DB Source Output]"
               endId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input]"
               name="OLE DB Source Output"
-              startId="Package\Data Flow Task\AW_PERSON_PHONE_SRC.Outputs[OLE DB Source Output]" />
+              startId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output]" />
             <path
               refId="Package\Data Flow Task.Paths[Valid Phone Types and Area codes]"
-              endId="Package\Data Flow Task\AW_PERSON_PHONE_TGT.Inputs[OLE DB Destination Input]"
+              endId="Package\Data Flow Task\AW_TGT_PERSON_PHONE.Inputs[OLE DB Destination Input]"
               name="Valid Phone Types and Area codes"
               startId="Package\Data Flow Task\Conditional Split.Outputs[Valid Phone Types and Area codes]" />
           </paths>
@@ -508,11 +508,11 @@
         Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="204,41.6"
-          Id="Package\Data Flow Task\AW_PERSON_PHONE_SRC"
+          Id="Package\Data Flow Task\AW_SRC_PERSON_PHONE"
           TopLeft="147.2,87.2" />
         <NodeLayout
           Size="204,41.6"
-          Id="Package\Data Flow Task\AW_PERSON_PHONE_TGT"
+          Id="Package\Data Flow Task\AW_TGT_PERSON_PHONE"
           TopLeft="144,352.8" />
         <NodeLayout
           Size="154.4,41.6"
@@ -568,7 +568,7 @@
     </LayoutInfo>
   </TaskHost>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\AW_PERSON_PHONE_SRC">
+    design-time-name="Package\Data Flow Task\AW_SRC_PERSON_PHONE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -581,7 +581,7 @@
     </Properties>
   </PipelineComponentMetadata>
   <PipelineComponentMetadata
-    design-time-name="Package\Data Flow Task\AW_PERSON_PHONE_TGT">
+    design-time-name="Package\Data Flow Task\AW_TGT_PERSON_PHONE">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>

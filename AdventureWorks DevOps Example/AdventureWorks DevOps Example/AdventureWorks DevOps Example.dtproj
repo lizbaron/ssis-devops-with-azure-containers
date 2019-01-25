@@ -26,26 +26,26 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">EBARON-3W10</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABF4cWurjvECdwh8yYx0smQAAAAACAAAAAAADZgAAwAAAABAAAAAH2m+5lqAXEWqYRegYI8zdAAAAAASAAACgAAAAEAAAAEvJI/FXYthPQY6qtPz2qTuIAAAAZHOpzNpxcXhHe8h9oWYGvEhDAp485bNalQyuVbGNL8UK3J3790TL/01Rn0LE0LEXa9gZcgU+Ri/fk6vKAwYtfkE38ShATGm36o4bSY7K0bVYcLDvC9VeNjYl1uhxC8eCykZUPu5WowSggqEWDcEWQJGLCaa+w62rWYYfLgAcUffx3fdCKWiyFhQAAACQ+BIZeLwlpTzpZp0N2+mZB9TpRA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAABF4cWurjvECdwh8yYx0smQAAAAACAAAAAAADZgAAwAAAABAAAAB2ra+tpbFnVgV8QyL4/ok1AAAAAASAAACgAAAAEAAAAGeHD5GMBBJh3j58HmRmzL6IAAAA91wk4ZO3xc5lhZFNkvBi+hfHP1I7cpLO9eUpunzfa4m0jXdZeAZYsy+nfQKZrt1U44HwZeN0g2nBql2YA4PliZvhW56nyM9PmglENyI0GahkbKiHFBGz6TeboaEwoUFfnfHZK8Y2b6Cy2/dxik4mxA+TavGxvk0p7g2/lab8P+upLrqMivaYDxQAAAAydcwrdA3koo7J/x/Q2Jsbpp+AGg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
-          <SSIS:Package SSIS:Name="PKG_Person_load.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="PKG_PersonPhone_load.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers />
         <SSIS:DeploymentInfo>
           <SSIS:ProjectConnectionParameters />
           <SSIS:PackageInfo>
-            <SSIS:PackageMetaData SSIS:Name="PKG_Person_load.dtsx">
+            <SSIS:PackageMetaData SSIS:Name="PKG_PersonPhone_load.dtsx">
               <SSIS:Properties>
-                <SSIS:Property SSIS:Name="ID">{3089200E-E158-4583-8CE0-1BD1DF003BA9}</SSIS:Property>
-                <SSIS:Property SSIS:Name="Name">PKG_Person_load</SSIS:Property>
+                <SSIS:Property SSIS:Name="ID">{ECCCEFF9-1AA8-4CD3-87AB-AB8FF35CE7E7}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">PKG_PersonPhone_load</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">6</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{BC4C3C7F-1181-4A04-89A3-6FAABE48FB3D}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{335F6763-1EEC-4213-98BE-DF1B4F50EA76}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
