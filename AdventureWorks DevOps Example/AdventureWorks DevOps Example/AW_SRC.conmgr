@@ -1,0 +1,22 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="AW_SRC"
+  DTS:DTSID="{25C0E183-CF62-484A-9328-A53B3E962B8E}"
+  DTS:CreationName="OLEDB">
+  <DTS:PropertyExpression
+    DTS:Name="ConnectionString">@[$Project::AW_SRC_ConnectionString]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="InitialCatalog">@[$Project::AW_SRC_InitialCatalog]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="Password">@[$Project::AW_SRC_Password]</DTS:PropertyExpression>
+  <DTS:PropertyExpression
+    DTS:Name="ServerName">@[$Project::AW_SRC_ServerName]</DTS:PropertyExpression>
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="Data Source=20.185.213.210;User ID=sa;Initial Catalog=AdventureWorks2017_src;Provider=SQLNCLI11.1;Auto Translate=False;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+3cZPNYZ8kOBqrEC29PQWAAAAAACAAAAAAADZgAAwAAAABAAAABXJLtHxAUdJfuzRHZ2wD/EAAAAAASAAACgAAAAEAAAAN+tdgmNrE3s8m+FeWatcHR4AAAA7rfXvGekzzPcDwZreg/6hSk3+cEMaWor6z2QzU7xaYE8vmdeaQKcuVaT8jQq0lBk7actUncCekNxbvarTcu3mY1TBLlqvaAS09apuWdH+tUL8A1L3EotRbCn9oDJ2WO7dX2pSkSZxvKftZ/epCUv3o/OghbcI3YWFAAAADULPv/kiYOYA9YAAlwcI2MEiOT4</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
