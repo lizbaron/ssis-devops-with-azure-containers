@@ -4,7 +4,7 @@ BEGIN
 -- Package Details
 -- Package Details
 DECLARE @package_name nvarchar(200) = N'PKG_PersonPhone_load.dtsx';
-DECLARE @project_name nvarchar(200) = N'AdventureWorks DevOps Example';
+DECLARE @project_name nvarchar(200) = N'AdventureWorks_Example';
 DECLARE @folder_name nvarchar(200) = N'TestProjectFolder';
 
 -- SSIS Execution Parameters
@@ -95,12 +95,12 @@ EXEC [SSISDB].[catalog].[create_execution] @package_name=@package_name, @executi
 
 EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 50, @parameter_name=N'LOGGING_LEVEL', @parameter_value=@logging_level;
 EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 50, @parameter_name=N'SYNCHRONIZED', @parameter_value=@is_synchronized;
-EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_SRC.InitialCatalog', @parameter_value=@AW_SRC_InitialCatalog;
-EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_SRC.ServerName', @parameter_value=@AW_SRC_ServerName;
-EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_SRC.ConnectionString', @parameter_value=@AW_SRC_ConnectionString;
-EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_TGT.InitialCatalog', @parameter_value=@AW_TGT_InitialCatalog;
-EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_TGT.ServerName', @parameter_value=@AW_TGT_ServerName;
-EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_TGT.ConnectionString', @parameter_value=@AW_TGT_ConnectionString;
+EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_SRC_InitialCatalog', @parameter_value=@AW_SRC_InitialCatalog;
+EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_SRC_ServerName', @parameter_value=@AW_SRC_ServerName;
+EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_SRC_ConnectionString', @parameter_value=@AW_SRC_ConnectionString;
+EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_TGT_InitialCatalog', @parameter_value=@AW_TGT_InitialCatalog;
+EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_TGT_ServerName', @parameter_value=@AW_TGT_ServerName;
+EXEC [SSISDB].[catalog].[set_execution_parameter_value] @execution_id, @object_type = 20, @parameter_name=N'AW_TGT_ConnectionString', @parameter_value=@AW_TGT_ConnectionString;
 
 EXEC [SSISDB].[catalog].[start_execution] @execution_id;
 

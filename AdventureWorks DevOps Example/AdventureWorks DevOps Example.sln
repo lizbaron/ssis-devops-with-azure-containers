@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "AdventureWorks DevOps Example", "AdventureWorks DevOps Example\AdventureWorks DevOps Example.dtproj", "{A88C6705-2E52-40A4-86E9-BE08F19DAD24}"
+Project("{159641D6-6404-4A2A-AE62-294DE0FE8301}") = "AdventureWorks_Example", "AdventureWorks DevOps Example\AdventureWorks_Example.dtproj", "{A88C6705-2E52-40A4-86E9-BE08F19DAD24}"
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "Unit Test Database", "Unit Test Database\Unit Test Database.sqlproj", "{5FB286FF-9D34-4DB9-B938-CC7F7B388478}"
 EndProject

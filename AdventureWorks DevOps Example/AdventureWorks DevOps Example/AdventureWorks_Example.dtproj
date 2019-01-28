@@ -15,7 +15,7 @@
       <SSIS:Project SSIS:ProtectionLevel="EncryptSensitiveWithUserKey" xmlns:SSIS="www.microsoft.com/SqlServer/SSIS">
         <SSIS:Properties>
           <SSIS:Property SSIS:Name="ID">{412397f7-5a83-4aba-ba15-6ed1daac2dec}</SSIS:Property>
-          <SSIS:Property SSIS:Name="Name">AdventureWorks DevOps Example</SSIS:Property>
+          <SSIS:Property SSIS:Name="Name">AdventureWorks_Example</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
           <SSIS:Property SSIS:Name="VersionBuild">0</SSIS:Property>
@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">EBARON-3W10</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+3cZPNYZ8kOBqrEC29PQWAAAAAACAAAAAAADZgAAwAAAABAAAACBr522pkhAsZ3FNUGikUGZAAAAAASAAACgAAAAEAAAAJGb5v6F93ZGXmzM1loCdnSIAAAAz4A9ankapFjTUQpBew3flpPJdI11yrbhaN+n+A8yqHTl8YXxxgiBUGhu8hnQ5vl0xKZJEcMF0VpjOQKUP9mfwHuJrPCW7TqLgG3q1etwB4x7njNg4Ghuvtq6cDE5xCbaNTvkrvYH6ff1hNCG83u4D/6zLVZZrZlWkJCDByw7rPch5giWb5UuTRQAAADLNVRrQXWCYyy90v+0cnbxj3Koeg==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA+3cZPNYZ8kOBqrEC29PQWAAAAAACAAAAAAADZgAAwAAAABAAAACaGrXsRvFREDhEBGCvLqhcAAAAAASAAACgAAAAEAAAAEdNAH3ZKxqUrrVc9s3CHcmIAAAAaUoRR0OAZNc+P8rCd9ULTIAGIFWPMGBKS73kf9CUOo78ZzdDM07h0fZtiSpTaveQu69qrHPXN1xSmaJlwvll6eiUd9i+zRnnFcrvaB37WSjDOhRki/m20hP2ETrboRGqBSnILI6oFF81EtHu2VXIiZhbORmqhbXm/yvoR9WTofUeir70Zgr6aBQAAAASP3KztQR8HyMtS9voIaMM/Mm/QQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
