@@ -1,4 +1,4 @@
-﻿CREATE PROCEDURE [dbo].[test ssis record not sent to tgt when PhoneNumberType is 4]
+﻿CREATE PROCEDURE [UT_PKG_PERSONPHONE_LOAD].[test ssis record not sent to tgt when PhoneNumberType is 4]
 AS
 BEGIN
 -- Package Details
@@ -68,14 +68,14 @@ SET @insert_stmt_src_personphone =
            ,[PhoneNumberTypeID]
            ,[ModifiedDate])
      VALUES
-           (@P_BusinessEntityID,
-           ,@P_PhoneNumber,
-           ,@P_PhoneNumberTypeID,
+           (@P_BusinessEntityID
+           ,@P_PhoneNumber
+           ,@P_PhoneNumberTypeID
            ,@P_ModifiedDate)';
 
 SET @insert_params_src_personphone = 
 	N'@P_BusinessEntityID int,
-      @P_PhoneNumber [dbo].[Phone],
+      @P_PhoneNumber nvarchar(25),
       @P_PhoneNumberTypeID int,
       @P_ModifiedDate datetime';
 
