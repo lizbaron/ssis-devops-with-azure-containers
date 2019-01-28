@@ -107,13 +107,13 @@ EXEC [SSISDB].[catalog].[start_execution] @execution_id;
 ---- STEP 3 Assert the test results
 SELECT @record_count = count(*)
   FROM [AdventureWorks2017_tgt].[Person].[PersonPhone]
-  WHERE PhoneNumberType = 4;
+  WHERE PhoneNumberTypeID = 4;
 
 exec tSQLt.AssertEquals 0, @record_count, 'The number of records with PhoneNumberType = 4 is non-zero.';
 
 SELECT @record_count = count(*)
   FROM [AdventureWorks2017_tgt].[Person].[PersonPhone]
-  WHERE PhoneNumberType != 4;
+  WHERE PhoneNumberTypeID != 4;
 
 exec tSQLt.AssertEquals 3, @record_count, 'The number of records with PhoneNumberType != 4 should be three.';
 

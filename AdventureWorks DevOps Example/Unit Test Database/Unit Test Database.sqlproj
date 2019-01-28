@@ -23,7 +23,8 @@
     <SqlServerVerification>False</SqlServerVerification>
     <IncludeCompositeObjects>True</IncludeCompositeObjects>
     <TargetDatabaseSet>True</TargetDatabaseSet>
-    <PermissionSet>UNSAFE</PermissionSet>
+    <PermissionSet>SAFE</PermissionSet>
+    <AssemblyOwner>dbo</AssemblyOwner>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <OutputPath>bin\Release\</OutputPath>
@@ -65,5 +66,19 @@
   <ItemGroup>
     <Build Include="Security\UT_PKG_PERSONPHONE_LOAD.sql" />
     <Build Include="UT_PKG_PERSONPHONE_LOAD\test ssis record rejected when Phone Number Type is 4.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Referenced Databases\DB_TSQLT_SSIS.dacpac" />
+  </ItemGroup>
+  <ItemGroup>
+    <ArtifactReference Include="Referenced Databases\DB_TSQLT_SSIS.dacpac">
+      <HintPath>Referenced Databases\DB_TSQLT_SSIS.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+    </ArtifactReference>
+    <ArtifactReference Include="C:\Program Files (x86)\Microsoft Visual Studio\2017\Professional\Common7\IDE\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac">
+      <HintPath>$(DacPacRootPath)\Extensions\Microsoft\SQLDB\Extensions\SqlServer\130\SqlSchemas\master.dacpac</HintPath>
+      <SuppressMissingDependenciesErrors>False</SuppressMissingDependenciesErrors>
+      <DatabaseVariableLiteralValue>master</DatabaseVariableLiteralValue>
+    </ArtifactReference>
   </ItemGroup>
 </Project>
