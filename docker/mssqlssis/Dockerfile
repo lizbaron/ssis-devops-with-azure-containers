@@ -20,9 +20,9 @@ WORKDIR /
 RUN Invoke-WebRequest -Uri $env:box -OutFile SQL.box ; \
         Invoke-WebRequest -Uri $env:exe -OutFile SQL.exe ; \
         Start-Process -Wait -FilePath .\SQL.exe -ArgumentList /qs, /x:setup ; \
-        .\setup\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine,IS /UPDATEENABLED=0 /SQLSVCACCOUNT='NT AUTHORITY\System' /SQLSYSADMINACCOUNTS='BUILTIN\ADMINISTRATORS' /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS ; 
-        #\
- #       Remove-Item -Recurse -Force SQL.exe, SQL.box, setup
+        .\setup\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine,IS /UPDATEENABLED=0 /SQLSVCACCOUNT='NT AUTHORITY\System' /SQLSYSADMINACCOUNTS='BUILTIN\ADMINISTRATORS' /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS ;
+#\
+#        Remove-Item -Recurse -Force SQL.exe, SQL.box, setup
 
 RUN stop-service MSSQLSERVER ; \
         set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql14.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall' -name tcpdynamicports -value '' ; \
@@ -44,16 +44,15 @@ RUN choco install server-jre8 -y
  
 ADD ${WIREMOCK_URI} Wiremock/
 
-ADD create_ssis_catalog.ps1 SSIS_SCRIPTS/
-ADD enable_clr_integration.sql SSIS_SCRIPTS/
-ADD deploy_ssis_package.ps1 SSIS_SCRIPTS/
+ADD docker/mssqlssis/create_ssis_catalog.ps1 SSIS_SCRIPTS/
+ADD docker/mssqlssis/enable_clr_integration.sql SSIS_SCRIPTS/
+ADD docker/mssqlssis/deploy_ssis_package.ps1 SSIS_SCRIPTS/
 
-COPY start.ps1 /
+COPY docker/mssqlssis/start.ps1 /
 
-RUN choco install nuget.commandline
+#RUN choco install nuget.commandline
 
 RUN net user /add LOCAL_SQLSRVR
-
 
 RUN powershell -Command Add-LocalGroupMember -Group "Administrators" -Member "LOCAL_SQLSRVR"
 
