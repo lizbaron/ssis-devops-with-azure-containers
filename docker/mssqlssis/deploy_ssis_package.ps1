@@ -1,30 +1,31 @@
 # script to deploy ssis ispac file and run the file
 
 param(
-	[string]$ProjectFilePath,
-	[string]$ProjectName,
-	[String[]]$PackageNames
+    [string]$IspacUrl,
+        [string]$ProjectFile,
+        [string]$ProjectName,
+        [String[]]$PackageNames
 )
 
-# Load the IntegrationServices Assembly  
-[Reflection.Assembly]::LoadWithPartialName("Microsoft.SqlServer.Management.IntegrationServices")  
+# Load the IntegrationServices Assembly
+[Reflection.Assembly]::LoadWithPartialName("Microsoft.SqlServer.Management.IntegrationServices")
 
-# Store the IntegrationServices Assembly namespace to avoid typing it every time  
-$ISNamespace = "Microsoft.SqlServer.Management.IntegrationServices"  
+# Store the IntegrationServices Assembly namespace to avoid typing it every time
+$ISNamespace = "Microsoft.SqlServer.Management.IntegrationServices"
 
-Write-Host "Connecting to server ..."  
+Write-Host "Connecting to server ..."
 
-# Create a connection to the server  
-$sqlConnectionString = "Data Source=localhost;Initial Catalog=master;Integrated Security=SSPI;"  
+# Create a connection to the server
+$sqlConnectionString = "Data Source=localhost;Initial Catalog=master;Integrated Security=SSPI;"
 $sqlConnection = New-Object System.Data.SqlClient.SqlConnection $sqlConnectionString
 
-Write-Host "connection string: "+$sqlConnectionString 
-Write-Host "connection: "+$sqlConnection 
+Write-Host "connection string: "+$sqlConnectionString
+Write-Host "connection: "+$sqlConnection
 
-# Create the Integration Services object  
+# Create the Integration Services object
 $integrationServices = New-Object $ISNamespace".IntegrationServices" $sqlConnection
 
-Write-Host "IntegrationServices object: "+$integrationServices 
+Write-Host "IntegrationServices object: "+$integrationServices
 
 # Get the Integration Services catalog
 $catalog = $integrationServices.Catalogs["SSISDB"]
@@ -37,7 +38,7 @@ while ($true){
     $catalog = $integrationServices.Catalogs["SSISDB"]
     if(!$catalog){
         Write-Verbose "Waiting for create SSISDB Catalog to complete."
-        Start-Sleep -Seconds 5        
+        Start-Sleep -Seconds 5
     }
     else {
         break
@@ -47,13 +48,26 @@ while ($true){
 
 $TargetFolderName = "TestProjectFolder"
 
-# Create the target folder
-$folder = New-Object $ISNamespace".CatalogFolder" ($catalog, $TargetFolderName, "Folder description")
-$folder.Create()
+$folder = $catalog.Folders[$TargetFolderName]
+Write-Host "folderExists: $folderExists"
 
-Write-Host "Folder: " + $folder
+if(!$folder){
+    # Create the target folder
+    $folder = New-Object $ISNamespace".CatalogFolder" ($catalog, $TargetFolderName, "Folder description")
+    $folder.Create()
+    Write-Host "Folder created: " + $folder
+}
+
+##$IspacUrl - url to download from Azure blob storage
+
+Write-Host "Downloading " $IspacUrl " ispac file ..."
+
+Invoke-WebRequest -Uri $IspacUrl -UseBasicParsing -OutFile "C:\SSIS_ISPACS\$ProjectFile"
+
+$ProjectFilePath="C:\SSIS_ISPACS\$ProjectFile"
+
 Write-Host "Deploying " $ProjectName " project ..."
-Write-Host "From " $ProjectFilePath " project file path..."
+Write-Host "From " $ProjectFile " project file ..."
 
 # Read the project file and deploy it
 [byte[]] $projectFile = [System.IO.File]::ReadAllBytes($ProjectFilePath)
