@@ -2,6 +2,11 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/SSIS DevOps with Azure Containers/.vs/SSIS DevOps with Azure Containers/v15
-/SSIS DevOps with Azure Containers/SSIS DevOps with Azure Containers/bin/Development
-/SSIS DevOps with Azure Containers/SSIS DevOps with Azure Containers/obj/Development
+/AdventureWorks DevOps Example/.vs/AdventureWorks DevOps Example/v15
+/AdventureWorks DevOps Example/AdventureWorks DevOps Example/bin/Development
+/AdventureWorks DevOps Example/AdventureWorks DevOps Example/obj/Development
+/AdventureWorks DevOps Example/Unit Test Database/obj/Debug
+/AdventureWorks DevOps Example/Unit Test Database/Unit Test Database.dbmdl
+/AdventureWorks DevOps Example/Unit Test Database/Unit Test Database.jfm
+/AdventureWorks DevOps Example/Unit Test Database/bin/Debug
+
