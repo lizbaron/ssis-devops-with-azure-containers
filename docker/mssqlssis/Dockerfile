@@ -50,8 +50,6 @@ ADD docker/mssqlssis/deploy_ssis_package.ps1 SSIS_SCRIPTS/
 
 COPY docker/mssqlssis/start.ps1 /
 
-#RUN choco install nuget.commandline
-
 RUN net user /add LOCAL_SQLSRVR
 
 RUN powershell -Command Add-LocalGroupMember -Group "Administrators" -Member "LOCAL_SQLSRVR"
