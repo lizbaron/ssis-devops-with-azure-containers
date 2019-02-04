@@ -100,6 +100,9 @@ $startWireMock=java -jar C:\Wiremock\wiremock-standalone-2.17.0.jar --verbose
 Write-Verbose "Wiremock status."
 wget http://localhost:8080/__admin -UseBasicParsing
 
+
+New-Item -ItemType directory -Path C:\SSIS_ISPACS
+
 $lastCheck = (Get-Date).AddSeconds(-2) 
 while ($true) 
 { 
