@@ -101,7 +101,7 @@ Write-Verbose "Wiremock status."
 wget http://localhost:8080/__admin -UseBasicParsing
 
 
-New-Item -ItemType directory -Path C:\SSIS_ISPACS
+&New-Item -ItemType directory -Path C:\SSIS_ISPACS
 
 $lastCheck = (Get-Date).AddSeconds(-2) 
 while ($true) 
