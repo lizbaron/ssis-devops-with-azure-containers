@@ -107,4 +107,3 @@ while ($true)
     $lastCheck = Get-Date 
     Start-Sleep -Seconds 2 
 }
-
