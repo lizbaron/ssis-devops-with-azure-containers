@@ -62,6 +62,17 @@ if(!$folder){
 
 Write-Host "Downloading " $IspacUrl " ispac file ..."
 
+$targetDir="C:\SSIS_ISPACS"
+
+if( -Not (Test-Path -Path $targetDir ) )
+{
+    New-Item -ItemType directory -Path $targetDir
+    Write-Host "Folder created: " + $targetDir
+}
+else{
+    Write-Host "$targetDir Folder exists: "
+}
+
 Invoke-WebRequest -Uri $IspacUrl -UseBasicParsing -OutFile "C:\SSIS_ISPACS\$ProjectFile"
 
 $ProjectFilePath="C:\SSIS_ISPACS\$ProjectFile"
