@@ -1,6 +1,7 @@
 # script to deploy ssis ispac file and run the file
 
 param(
+	[string]$IspacUrl,
 	[string]$ProjectFilePath,
 	[string]$ProjectName,
 	[String[]]$PackageNames
