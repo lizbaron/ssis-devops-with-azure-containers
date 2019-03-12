@@ -2,9 +2,9 @@
 
 param(
 	[string]$IspacUrl,
-	[string]$ProjectFilePath,
-	[string]$ProjectName,
-	[String[]]$PackageNames
+        [string]$ProjectFile,
+        [string]$ProjectName,
+        [String[]]$PackageNames
 )
 
 # Load the IntegrationServices Assembly  
