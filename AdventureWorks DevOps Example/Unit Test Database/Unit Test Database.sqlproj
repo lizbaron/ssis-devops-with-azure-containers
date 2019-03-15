@@ -66,6 +66,7 @@
   <ItemGroup>
     <Build Include="Security\UT_PKG_PERSONPHONE_LOAD.sql" />
     <Build Include="UT_PKG_PERSONPHONE_LOAD\test ssis record rejected when Phone Number Type is 4.sql" />
+    <Build Include="UT_PKG_PERSONPHONE_LOAD\test ssis record rejected when Phone Number starts with 666.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Referenced Databases\DB_TSQLT_SSIS.dacpac" />

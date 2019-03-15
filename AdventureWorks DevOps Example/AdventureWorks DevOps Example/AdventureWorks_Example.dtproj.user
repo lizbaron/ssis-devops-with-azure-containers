@@ -4,6 +4,8 @@
     <Configuration>
       <Name>Development</Name>
       <Options>
+        <ServerName>52.188.217.76</ServerName>
+        <PathOnServer />
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_PersonPhone_load"
   DTS:PackageType="5"
-  DTS:VersionBuild="10"
-  DTS:VersionGUID="{3E752239-801F-49C0-9847-ADB588D13738}">
+  DTS:VersionBuild="12"
+  DTS:VersionGUID="{F7C9B0A9-4F2E-42BB-9393-425D3058DE6F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -352,16 +352,16 @@
                   name="Conditional Split Input">
                   <inputColumns>
                     <inputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[PhoneNumberTypeID]"
-                      cachedDataType="i4"
-                      cachedName="PhoneNumberTypeID"
-                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]" />
-                    <inputColumn
                       refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[PhoneNumber]"
                       cachedDataType="wstr"
                       cachedLength="25"
                       cachedName="PhoneNumber"
                       lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[PhoneNumberTypeID]"
+                      cachedDataType="i4"
+                      cachedName="PhoneNumberTypeID"
+                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
