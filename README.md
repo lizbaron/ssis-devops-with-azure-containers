@@ -3,7 +3,7 @@ Sample project to get your SSIS DevOps up and running on Azure Containers
 
 Build instructions
 
-* Extract to directory with the docker file
+* Extract to directory with the Dockerfile
 * Change to docker/mssqlssis folder
 * Build using
     docker build [-t <desired_tag>] . 
