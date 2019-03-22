@@ -1,3 +1,4 @@
+# Adapted from: https://github.com/Microsoft/mssql-docker/blob/master/windows/mssql-server-windows/start.ps1
 # The script sets the sa password and start the SQL Service
 # Also it attaches additional database from the disk
 # The format for attach_dbs
