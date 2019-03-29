@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="PKG_PersonPhone_load"
   DTS:PackageType="5"
-  DTS:VersionBuild="12"
-  DTS:VersionGUID="{F7C9B0A9-4F2E-42BB-9393-425D3058DE6F}">
+  DTS:VersionBuild="17"
+  DTS:VersionGUID="{510F8504-FDBD-43C1-B7A8-3ACF58283584}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -357,11 +357,6 @@
                       cachedLength="25"
                       cachedName="PhoneNumber"
                       lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumber]" />
-                    <inputColumn
-                      refId="Package\Data Flow Task\Conditional Split.Inputs[Conditional Split Input].Columns[PhoneNumberTypeID]"
-                      cachedDataType="i4"
-                      cachedName="PhoneNumberTypeID"
-                      lineageId="Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -381,13 +376,13 @@
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">#{Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumberTypeID]} != 4 &amp;&amp; [FINDSTRING](#{Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumber]},"666",1) != 1</property>
+                      name="Expression">[FINDSTRING](#{Package\Data Flow Task\AW_SRC_PERSON_PHONE.Outputs[OLE DB Source Output].Columns[PhoneNumber]},"666",1) != 1</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">PhoneNumberTypeID != 4 &amp;&amp; FINDSTRING(PhoneNumber,"666",1) != 1</property>
+                      name="FriendlyExpression">FINDSTRING(PhoneNumber,"666",1) != 1</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -506,7 +501,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-77.01076171875,43.2453125000001,154.0215234375,11.609375"
+              BoundingBox="-77.01076171875,43.2453125,154.0215234375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
