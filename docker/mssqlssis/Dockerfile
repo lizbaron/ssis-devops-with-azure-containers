@@ -1,3 +1,4 @@
+# Adapted from: https://github.com/Microsoft/mssql-docker/blob/master/windows/mssql-server-windows-developer/dockerfile
 FROM microsoft/windowsservercore
 
 LABEL maintainer "Sreeja P"

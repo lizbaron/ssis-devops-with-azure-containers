@@ -1,3 +1,4 @@
+# Adapted from: https://docs.microsoft.com/en-us/sql/integration-services/ssis-quickstart-deploy-powershell?view=sql-server-2017
 # script to deploy ssis ispac file and run the file
 
 param(
