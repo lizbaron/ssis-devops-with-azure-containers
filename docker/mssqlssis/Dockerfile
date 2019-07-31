@@ -30,10 +30,6 @@ RUN stop-service MSSQLSERVER ; \
 
 HEALTHCHECK CMD [ "sqlcmd", "-Q", "select 1" ]
 
-#Install ZappySys
-ADD SSISPowerPackSetup_64bit_Trial.msi ZappySys_Installer/
-#RUN msiexec.exe /i "c:\ZappySys_Installer\SSISPowerPackSetup_64bit_Trial.msi" /quiet /L*V "C:\ZappySys_install-pp-log.txt"
-RUN Start-Process msiexec.exe -ArgumentList '/i', "c:\ZappySys_Installer\SSISPowerPackSetup_64bit_Trial.msi", '/quiet', '/norestart' -NoNewWindow -Wait
 ENV WIREMOCK_URI "http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/2.21.0/wiremock-standalone-2.21.0.jar"
 
 #Install Java
@@ -52,10 +48,6 @@ ADD enable_clr_integration.sql SSIS_SCRIPTS/
 ADD deploy_ssis_package.ps1 SSIS_SCRIPTS/
 
 COPY start.ps1 /
-
-RUN choco install nuget.commandline
-
-RUN nuget.exe install Oracle.ManagedDataAccess -Version "12.2.1100"
 
 RUN net user /add LOCAL_SQLSRVR
 
