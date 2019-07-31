@@ -1,5 +1,4 @@
-# Adapted from: https://github.com/Microsoft/mssql-docker/blob/master/windows/mssql-server-windows-developer/dockerfile
-FROM microsoft/windowsservercore
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 
 LABEL maintainer "Sreeja P"
 
@@ -22,7 +21,7 @@ RUN Invoke-WebRequest -Uri $env:box -OutFile SQL.box ; \
         Invoke-WebRequest -Uri $env:exe -OutFile SQL.exe ; \
         Start-Process -Wait -FilePath .\SQL.exe -ArgumentList /qs, /x:setup ; \
         .\setup\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine,IS /UPDATEENABLED=0 /SQLSVCACCOUNT='NT AUTHORITY\System' /SQLSYSADMINACCOUNTS='BUILTIN\ADMINISTRATORS' /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS ; \
-	Remove-Item -Recurse -Force SQL.exe, SQL.box, setup
+        Remove-Item -Recurse -Force SQL.exe, SQL.box, setup
 
 RUN stop-service MSSQLSERVER ; \
         set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql14.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall' -name tcpdynamicports -value '' ; \
@@ -31,7 +30,11 @@ RUN stop-service MSSQLSERVER ; \
 
 HEALTHCHECK CMD [ "sqlcmd", "-Q", "select 1" ]
 
-ENV WIREMOCK_URI "http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/2.17.0/wiremock-standalone-2.17.0.jar"
+#Install ZappySys
+ADD SSISPowerPackSetup_64bit_Trial.msi ZappySys_Installer/
+#RUN msiexec.exe /i "c:\ZappySys_Installer\SSISPowerPackSetup_64bit_Trial.msi" /quiet /L*V "C:\ZappySys_install-pp-log.txt"
+RUN Start-Process msiexec.exe -ArgumentList '/i', "c:\ZappySys_Installer\SSISPowerPackSetup_64bit_Trial.msi", '/quiet', '/norestart' -NoNewWindow -Wait
+ENV WIREMOCK_URI "http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/2.21.0/wiremock-standalone-2.21.0.jar"
 
 #Install Java
 # Set up chocolatey to install java
@@ -40,7 +43,7 @@ ENV chocolateyUseWindowsCompression false
 #Install chocolatey via powershell
 RUN powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 RUN choco feature disable --name showDownloadProgress
-RUN choco install server-jre8 -y
+RUN choco install openjdk -y
  
 ADD ${WIREMOCK_URI} Wiremock/
 
@@ -49,6 +52,10 @@ ADD enable_clr_integration.sql SSIS_SCRIPTS/
 ADD deploy_ssis_package.ps1 SSIS_SCRIPTS/
 
 COPY start.ps1 /
+
+RUN choco install nuget.commandline
+
+RUN nuget.exe install Oracle.ManagedDataAccess -Version "12.2.1100"
 
 RUN net user /add LOCAL_SQLSRVR
 
