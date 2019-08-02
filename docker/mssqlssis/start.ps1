@@ -95,13 +95,6 @@ $create_SSIS_Catalog_Script= "C:\SSIS_SCRIPTS\create_ssis_catalog.ps1"
 Write-Verbose "Starting Wiremock."
 # Adding verbose flag while starting wiremock
 
-$startWireMock=java -jar C:\Wiremock\wiremock-standalone-2.17.0.jar --verbose
-&$startWireMock
-
-Write-Verbose "Wiremock status."
-wget http://localhost:8080/__admin -UseBasicParsing
-
-
 &New-Item -ItemType directory -Path C:\SSIS_ISPACS
 
 $lastCheck = (Get-Date).AddSeconds(-2) 

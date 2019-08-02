@@ -30,8 +30,6 @@ RUN stop-service MSSQLSERVER ; \
 
 HEALTHCHECK CMD [ "sqlcmd", "-Q", "select 1" ]
 
-ENV WIREMOCK_URI "http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/2.21.0/wiremock-standalone-2.21.0.jar"
-
 #Install Java
 # Set up chocolatey to install java
 ENV chocolateyUseWindowsCompression false
@@ -39,9 +37,7 @@ ENV chocolateyUseWindowsCompression false
 #Install chocolatey via powershell
 RUN powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 RUN choco feature disable --name showDownloadProgress
-RUN choco install openjdk -y
- 
-ADD ${WIREMOCK_URI} Wiremock/
+RUN choco install openjdk -y 
 
 ADD create_ssis_catalog.ps1 SSIS_SCRIPTS/
 ADD enable_clr_integration.sql SSIS_SCRIPTS/
