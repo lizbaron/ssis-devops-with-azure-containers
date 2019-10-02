@@ -1,21 +1,30 @@
 # Adapted from: https://github.com/Microsoft/mssql-docker/blob/master/windows/mssql-server-windows-developer/dockerfile
-FROM microsoft/windowsservercore
-
+FROM mcr.microsoft.com/windows/servercore:ltsc2019
 LABEL maintainer "Sreeja P"
+
+ARG ARCHIVA_BASE_URL="https://archiva.tfanet.org/archiva/restServices/archivaServices/searchService/artifact"
+ARG ENV_SUFFIX=".dev"
+ARG ARCHIVA_REPO="data-internal"
+ARG TSQLT_DACPAC_URL="${ARCHIVA_BASE_URL}?g=org.dataplatform&a=db_tsqlt_ssis&v=LATEST&r=data-central&p=dacpac"
+ARG sa_password="Welcome1"
+
 
 # Download Links:
 ENV exe "https://go.microsoft.com/fwlink/?linkid=840945"
 ENV box "https://go.microsoft.com/fwlink/?linkid=840944"
 
-ENV sa_password="" \
+ENV sa_password="Welcome1" \
     attach_dbs="[]" \
     ACCEPT_EULA="Y" \
     sa_password_path="C:\ProgramData\Docker\secrets\sa-password"
 
 SHELL ["powershell", "-Command", "$ErrorActionPreference = 'Stop'; $ProgressPreference = 'SilentlyContinue';"]
 
-# make install files accessible
 WORKDIR /
+
+COPY deployDacpacs.ps1 /
+COPY changeSqlLogin.ps1 /
+COPY setupSSIS.ps1 /
 
 #need to change the command to include "IS"
 RUN Invoke-WebRequest -Uri $env:box -OutFile SQL.box ; \
@@ -24,14 +33,31 @@ RUN Invoke-WebRequest -Uri $env:box -OutFile SQL.box ; \
         .\setup\setup.exe /q /ACTION=Install /INSTANCENAME=MSSQLSERVER /FEATURES=SQLEngine,IS /UPDATEENABLED=0 /SQLSVCACCOUNT='NT AUTHORITY\System' /SQLSYSADMINACCOUNTS='BUILTIN\ADMINISTRATORS' /TCPENABLED=1 /NPENABLED=0 /IACCEPTSQLSERVERLICENSETERMS ; \
 	Remove-Item -Recurse -Force SQL.exe, SQL.box, setup
 
+# SqlPackage.exe (for applying schema from Visual Studio)
+ADD https://download.microsoft.com/download/9/2/2/9228AAC2-90D1-4F48-B423-AF345296C7DD/EN/x64/DacFramework.msi /DacFramework.msi
+RUN Start-Process -FilePath 'msiexec.exe'                         \
+        -ArgumentList '/quiet','/qn','/norestart',                \
+                      '/log','\DacFramework.log',                 \
+                      '/i','\DacFramework.msi'                    \
+        -Wait
+
+ADD create_ssis_catalog.ps1 SSIS_SCRIPTS/
+ADD enable_clr_integration.sql SSIS_SCRIPTS/
+ADD deploy_ssis_package.ps1 SSIS_SCRIPTS/
+
+RUN .\changeSqlLogin
+RUN .\setupSSIS
+
+# Deploy dacpacs before stopping sql server
+RUN Invoke-WebRequest -Uri $env:TSQLT_DACPAC_URL -OutFile TSQLT.dacpac ; \	
+	.\deployDacpacs
+
 RUN stop-service MSSQLSERVER ; \
         set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql14.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall' -name tcpdynamicports -value '' ; \
         set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql14.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall' -name tcpport -value 1433 ; \
         set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql14.MSSQLSERVER\mssqlserver\' -name LoginMode -value 2 ;
 
 HEALTHCHECK CMD [ "sqlcmd", "-Q", "select 1" ]
-
-ENV WIREMOCK_URI "http://repo1.maven.org/maven2/com/github/tomakehurst/wiremock-standalone/2.17.0/wiremock-standalone-2.17.0.jar"
 
 #Install Java
 # Set up chocolatey to install java
@@ -40,14 +66,8 @@ ENV chocolateyUseWindowsCompression false
 #Install chocolatey via powershell
 RUN powershell -Command Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 RUN choco feature disable --name showDownloadProgress
-RUN choco install server-jre8 -y
+RUN choco install openjdk -y
  
-ADD ${WIREMOCK_URI} Wiremock/
-
-ADD create_ssis_catalog.ps1 SSIS_SCRIPTS/
-ADD enable_clr_integration.sql SSIS_SCRIPTS/
-ADD deploy_ssis_package.ps1 SSIS_SCRIPTS/
-
 COPY start.ps1 /
 
 RUN net user /add LOCAL_SQLSRVR

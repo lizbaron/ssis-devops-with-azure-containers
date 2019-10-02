@@ -1,4 +1,3 @@
-# Adapted from: https://github.com/Microsoft/mssql-docker/blob/master/windows/mssql-server-windows/start.ps1
 # The script sets the sa password and start the SQL Service
 # Also it attaches additional database from the disk
 # The format for attach_dbs
@@ -29,22 +28,6 @@ if($ACCEPT_EULA -ne "Y" -And $ACCEPT_EULA -ne "y")
 # start the service
 Write-Verbose "Starting SQL Server"
 start-service MSSQLSERVER
-
-if($sa_password -eq "_") {
-    if (Test-Path $env:sa_password_path) {
-        $sa_password = Get-Content -Raw $secretPath
-    }
-    else {
-        Write-Verbose "WARN: Using default SA password, secret file not found at: $secretPath"
-    }
-}
-
-if($sa_password -ne "_")
-{
-    Write-Verbose "Changing SA login credentials"
-    $sqlcmd = "ALTER LOGIN sa with password=" +"'" + $sa_password + "' ,CHECK_EXPIRATION=OFF" + ";ALTER LOGIN sa ENABLE;"
-    & sqlcmd -Q $sqlcmd
-}
 
 $attach_dbs_cleaned = $attach_dbs.TrimStart('\\').TrimEnd('\\')
 
@@ -84,25 +67,14 @@ $enableSysAdminPermissions="sp_addsrvRolemember [" + $env:USERDOMAIN + "\"+ $sql
 Write-Verbose "Enablee Sys admin permissions command: $enableSysAdminPermissions" 
 & sqlcmd -j -m-1 -Q $enableSysAdminPermissions
 
-Write-Verbose "Enable CLR Integration."
-$enableCLRsqlcmd = "C:\SSIS_SCRIPTS\enable_clr_integration.sql"
-& sqlcmd -i $enableCLRsqlcmd
-
-Write-Verbose "Create SSIS Catalog."
-$create_SSIS_Catalog_Script= "C:\SSIS_SCRIPTS\create_ssis_catalog.ps1"
-&$create_SSIS_Catalog_Script
-
 Write-Verbose "Starting Wiremock."
 # Adding verbose flag while starting wiremock
 
-$startWireMock=java -jar C:\Wiremock\wiremock-standalone-2.17.0.jar --verbose
+$startWireMock=java -jar C:\Wiremock\wiremock-standalone-2.21.0.jar --verbose
 &$startWireMock
 
 Write-Verbose "Wiremock status."
 wget http://localhost:8080/__admin -UseBasicParsing
-
-
-&New-Item -ItemType directory -Path C:\SSIS_ISPACS
 
 $lastCheck = (Get-Date).AddSeconds(-2) 
 while ($true) 

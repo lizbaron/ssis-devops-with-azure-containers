@@ -1,4 +1,3 @@
-# Adapted from: https://docs.microsoft.com/en-us/sql/integration-services/catalog/ssis-catalog?view=sql-server-2017#create-the-ssis-catalog
 # script to create ssis catalog and deploy ssis ispac file
 
 
