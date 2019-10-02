@@ -9,7 +9,6 @@ ARG TSQLT_DACPAC_URL="${ARCHIVA_BASE_URL}?g=org.dataplatform&a=db_tsqlt_ssis&v=L
 ARG ADVENTURE_WORKS_BAK_URL="https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2017.bak"
 ARG sa_password="Welcome1"
 
-
 # Download Links:
 ENV exe "https://go.microsoft.com/fwlink/?linkid=840945"
 ENV box "https://go.microsoft.com/fwlink/?linkid=840944"
