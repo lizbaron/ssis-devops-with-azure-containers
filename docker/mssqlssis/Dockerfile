@@ -6,6 +6,7 @@ ARG ARCHIVA_BASE_URL="https://archiva.tfanet.org/archiva/restServices/archivaSer
 ARG ENV_SUFFIX=".dev"
 ARG ARCHIVA_REPO="data-internal"
 ARG TSQLT_DACPAC_URL="${ARCHIVA_BASE_URL}?g=org.dataplatform&a=db_tsqlt_ssis&v=LATEST&r=data-central&p=dacpac"
+ARG ADVENTURE_WORKS_BAK_URL="https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2017.bak"
 ARG sa_password="Welcome1"
 
 
@@ -49,7 +50,8 @@ RUN .\changeSqlLogin
 RUN .\setupSSIS
 
 # Deploy dacpacs before stopping sql server
-RUN Invoke-WebRequest -Uri $env:TSQLT_DACPAC_URL -OutFile TSQLT.dacpac ; \	
+RUN Invoke-WebRequest -Uri $env:TSQLT_DACPAC_URL -OutFile TSQLT.dacpac ; \
+    Invoke-WebRequest -Uri $env:ADVENTURE_WORKS_BAK_URL -OutFile  ADVENTURE_WORKS.bak ;\	
 	.\deployDacpacs
 
 RUN stop-service MSSQLSERVER ; \

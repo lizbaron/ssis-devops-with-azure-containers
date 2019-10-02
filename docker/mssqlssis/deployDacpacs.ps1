@@ -6,19 +6,14 @@ Param ($db, $DbName, $Vars)
 
 gci env:
 
-## deploy dacpacs
-echo "Deploying TSQLT"
-$dacPacList= @{ods_wdods = 'WDODS'; ods_jsods_csddl = 'JSODS'; oltp_digix = 'DIGIX'; oltp_redwood = 'REDWOOD'; ods_tfactods_csddl='TFACTODS'}
-foreach ($db in $dacPacList.keys) { 
-	DeployDacpacs $db $dacPacList.$db ""
-	echo "Deploying TSQLT"
-	DeployDacpacs TSQLT $dacPacList.$db ""
-}
-
-DeployDacpacs TSQLT EDW ""
-
-&"c:\Program Files\Microsoft SQL Server\150\DAC\bin\SqlPackage.exe" /Action:Publish /SourceFile:ods_integrations_hub.dacpac /Variables:REDWOOD=REDWOOD /Variables:TFACTODS=TFACTODS /Variables:WDODS=WDODS /Variables:JSODS=JSODS /Variables:DIGIX=DIGIX /Variables:EDW=EDW /TargetDatabaseName:INTEGRATIONS_HUB /TargetServerName:localhost 
-& sqlcmd -d INTEGRATIONS_HUB -Q "EXEC sp_changedbowner 'sa'" 
+## deploy adventure works
+& sqlcmd RESTORE DATABASE AdventureworksSrc FROM DISK = 'ADVENTURE_WORKS.bak'
+& sqlcmd RESTORE DATABASE AdventureworksTgt FROM DISK = 'ADVENTURE_WORKS.bak'
 
 echo "Deploying TSQLT"
-DeployDacpacs TSQLT INTEGRATIONS_HUB ""
+
+DeployDacpacs TSQLT AdventureworksSrc ""
+DeployDacpacs TSQLT AdventureworksTgt ""
+
+& sqlcmd -d AdventureworksSrc -Q "EXEC sp_changedbowner 'sa'" 
+& sqlcmd -d AdventureworksTgt -Q "EXEC sp_changedbowner 'sa'" 
