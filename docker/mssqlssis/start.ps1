@@ -67,14 +67,6 @@ $enableSysAdminPermissions="sp_addsrvRolemember [" + $env:USERDOMAIN + "\"+ $sql
 Write-Verbose "Enablee Sys admin permissions command: $enableSysAdminPermissions" 
 & sqlcmd -j -m-1 -Q $enableSysAdminPermissions
 
-Write-Verbose "Starting Wiremock."
-# Adding verbose flag while starting wiremock
-
-$startWireMock=java -jar C:\Wiremock\wiremock-standalone-2.21.0.jar --verbose
-&$startWireMock
-
-Write-Verbose "Wiremock status."
-wget http://localhost:8080/__admin -UseBasicParsing
 
 $lastCheck = (Get-Date).AddSeconds(-2) 
 while ($true) 

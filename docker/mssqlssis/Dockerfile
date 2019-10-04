@@ -2,9 +2,6 @@
 FROM mcr.microsoft.com/windows/servercore:ltsc2019
 LABEL maintainer "Sreeja P"
 
-ARG ARCHIVA_BASE_URL="https://archiva.tfanet.org/archiva/restServices/archivaServices/searchService/artifact"
-ARG ENV_SUFFIX=".dev"
-ARG ARCHIVA_REPO="data-internal"
 ARG TSQLT_DACPAC_URL="https://pkgs.dev.azure.com/pass2019/passdemo/_packaging/tfa/maven/v1/org/teachforamerica/dataplatform/db_tsqlt_ssis/1.0.0/db_tsqlt_ssis-1.0.0.dacpac"
 ARG ADVENTURE_WORKS_BAK_URL="https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2017.bak"
 ARG sa_password="Welcome1"
