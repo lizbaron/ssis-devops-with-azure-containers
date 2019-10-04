@@ -6,14 +6,16 @@ Param ($db, $DbName, $Vars)
 
 gci env:
 
+dir "C:\"
+
 ## deploy adventure works
-& sqlcmd RESTORE DATABASE AdventureworksSrc FROM DISK = 'ADVENTURE_WORKS.bak'
-& sqlcmd RESTORE DATABASE AdventureworksTgt FROM DISK = 'ADVENTURE_WORKS.bak'
+& sqlcmd -d master -U sa -P "Welcome1" -Q "RESTORE DATABASE AdventureworksSrc FROM DISK = 'C:\ADVENTURE_WORKS.bak'"
+& sqlcmd -d master -U sa -P "Welcome1" -Q "RESTORE DATABASE AdventureworksTgt FROM DISK = 'C:\ADVENTURE_WORKS.bak'"
 
 echo "Deploying TSQLT"
 
 DeployDacpacs TSQLT AdventureworksSrc ""
 DeployDacpacs TSQLT AdventureworksTgt ""
 
-& sqlcmd -d AdventureworksSrc -Q "EXEC sp_changedbowner 'sa'" 
-& sqlcmd -d AdventureworksTgt -Q "EXEC sp_changedbowner 'sa'" 
+& sqlcmd -d AdventureworksSrc -U sa -P "Welcome1" -Q "EXEC sp_changedbowner 'sa'" 
+& sqlcmd -d AdventureworksTgt -U sa -P "Welcome1" -Q "EXEC sp_changedbowner 'sa'" 
