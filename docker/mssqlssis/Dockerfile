@@ -10,7 +10,7 @@ ARG ADVENTURE_WORKS_BAK_URL="https://github.com/Microsoft/sql-server-samples/rel
 ENV exe "https://go.microsoft.com/fwlink/?linkid=840945"
 ENV box "https://go.microsoft.com/fwlink/?linkid=840944"
 
-ENV sa_password="Welcome1" \
+ENV sa_password="W3lc0mE002" \
     attach_dbs="[]" \
     ACCEPT_EULA="Y" \
     sa_password_path="C:\ProgramData\Docker\secrets\sa-password"
