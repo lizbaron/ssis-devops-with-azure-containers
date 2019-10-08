@@ -4,7 +4,7 @@ LABEL maintainer "Sreeja P"
 
 ARG TSQLT_DACPAC_URL="https://pkgs.dev.azure.com/pass2019/passdemo/_packaging/tfa/maven/v1/org/teachforamerica/dataplatform/db_tsqlt_ssis/1.0.0/db_tsqlt_ssis-1.0.0.dacpac"
 ARG ADVENTURE_WORKS_BAK_URL="https://github.com/Microsoft/sql-server-samples/releases/download/adventureworks/AdventureWorks2017.bak"
-ARG sa_password="Welcome1"
+
 
 # Download Links:
 ENV exe "https://go.microsoft.com/fwlink/?linkid=840945"
