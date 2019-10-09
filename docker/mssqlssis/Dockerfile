@@ -42,13 +42,13 @@ ADD create_ssis_catalog.ps1 SSIS_SCRIPTS/
 ADD enable_clr_integration.sql SSIS_SCRIPTS/
 ADD deploy_ssis_package.ps1 SSIS_SCRIPTS/
 
-RUN .\changeSqlLogin $env:sa_password
+RUN .\changeSqlLogin -sa_password $env:sa_password
 RUN .\setupSSIS
 
 # Deploy dacpacs before stopping sql server
 RUN Invoke-WebRequest -Uri $env:TSQLT_DACPAC_URL -OutFile TSQLT.dacpac ; \
     Invoke-WebRequest -Uri $env:ADVENTURE_WORKS_BAK_URL -OutFile  ADVENTURE_WORKS.bak ;\	
-	.\deployDacpacs $env:sa_password
+	.\deployDacpacs -sa_password $env:sa_password
 
 RUN stop-service MSSQLSERVER ; \
         set-itemproperty -path 'HKLM:\software\microsoft\microsoft sql server\mssql14.MSSQLSERVER\mssqlserver\supersocketnetlib\tcp\ipall' -name tcpdynamicports -value '' ; \
