@@ -8,7 +8,6 @@ if($null -ne $sa_password -And $sa_password -ne "") {
 	$sqlcmdChangePassword = "ALTER LOGIN sa with password='"+$sa_password+"' ,CHECK_POLICY=OFF,CHECK_EXPIRATION=OFF" 
 	echo "command: " $sqlcmdChangePassword
 	& sqlcmd -Q $sqlcmdChangePassword
-
 	$sqlcmdEnable = "ALTER LOGIN sa ENABLE"
         & sqlcmd -Q $sqlcmdEnable
 }
