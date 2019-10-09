@@ -12,11 +12,11 @@ Param ($db, $DbName, $Vars)
 
 gci env:
 
-dir "C:\"
+echo "password: " +$sa_password
 
 ## deploy adventure works
-& sqlcmd -d master -U sa -P $sa_password -Q "RESTORE DATABASE AdventureworksSrc FROM DISK = 'C:\ADVENTURE_WORKS.bak'"
-& sqlcmd -d master -U sa -P $sa_password -Q "RESTORE DATABASE AdventureworksTgt FROM DISK = 'C:\ADVENTURE_WORKS.bak'"
+& sqlcmd -d master -U sa -P "$sa_password" -Q "RESTORE DATABASE AdventureworksSrc FROM DISK = 'C:\ADVENTURE_WORKS.bak'"
+& sqlcmd -d master -U sa -P "$sa_password" -Q "RESTORE DATABASE AdventureworksTgt FROM DISK = 'C:\ADVENTURE_WORKS.bak'"
 
 echo "Deploying TSQLT"
 
