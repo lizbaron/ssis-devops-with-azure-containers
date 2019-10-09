@@ -23,6 +23,9 @@ COPY deployDacpacs.ps1 /
 COPY changeSqlLogin.ps1 /
 COPY setupSSIS.ps1 /
 
+COPY instawdbSrc.sql /
+COPY instawdbTgt.sql /
+
 #need to change the command to include "IS"
 RUN Invoke-WebRequest -Uri $env:box -OutFile SQL.box ; \
         Invoke-WebRequest -Uri $env:exe -OutFile SQL.exe ; \
