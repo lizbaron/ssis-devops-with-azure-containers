@@ -12,13 +12,14 @@ Param ($db, $DbName, $Vars)
 
 gci env:
 
-echo "password: " +$sa_password
-
 ## deploy adventure works
-# & sqlcmd -d master -Q "RESTORE DATABASE AdventureworksSrc FROM DISK = 'C:\ADVENTURE_WORKS.bak'"
-# & sqlcmd -d master -Q "RESTORE DATABASE AdventureworksTgt FROM DISK = 'C:\ADVENTURE_WORKS.bak'"
 
-& sqlcmd -d master -q "USE [master]; RESTORE DATABASE AdventureWorksSrc FROM disk='C:\ADVENTURE_WORKS.bak' WITH MOVE 'AdventureWorks_data' TO 'C:\AdventureWorks.mdf', MOVE 'AdventureWorks_Log' TO 'C:\AdventureWorks.ldf',REPLACE"
+# & sqlcmd -d master -q "RESTORE FILELISTONLY FROM DISK = 'C:\ADVENTURE_WORKS.bak' WITH FILE = 1"
+# AdventureWorks2017
+# AdventureWorks2017_log
+
+& sqlcmd -d master -q "USE [master]; RESTORE DATABASE AdventureWorksSrc FROM disk='C:\ADVENTURE_WORKS.bak' WITH MOVE 'AdventureWorks2017' TO 'C:\AdventureWorks2017Src.mdf', MOVE 'AdventureWorks2017_log' TO 'C:\AdventureWorks2017Src_log.ldf',REPLACE"
+& sqlcmd -d master -q "USE [master]; RESTORE DATABASE AdventureWorksTgt FROM disk='C:\ADVENTURE_WORKS.bak' WITH MOVE 'AdventureWorks2017' TO 'C:\AdventureWorks2017Tgt.mdf', MOVE 'AdventureWorks2017_log' TO 'C:\AdventureWorks2017Tgt_log.ldf',REPLACE"
 
 echo "Deploying TSQLT"
 
